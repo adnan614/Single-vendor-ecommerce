@@ -1,0 +1,23 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class CategorySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Category::create([
+        
+        'parent_id' => '1',
+        'category_name' => 'Estacy',
+        'status' => 'false',
+        ]);
+    }
+}

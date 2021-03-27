@@ -17,8 +17,8 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/slick/slick.css" rel="stylesheet">
-        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="{{ asset('frontend') }}/lib/slick/slick.css" rel="stylesheet">
+        <link href="{{ asset('frontend') }}/lib/slick/slick-theme.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="{{ asset('frontend') }}/css/style.css" rel="stylesheet">
@@ -53,18 +53,18 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="{{ asset('frontend') }}/index.html" class="nav-item nav-link active">Home</a>
-                            <a href="{{ asset('frontend') }}/product-list.html" class="nav-item nav-link">Products</a>
-                            <a href="{{ asset('frontend') }}/product-detail.html" class="nav-item nav-link">Product Detail</a>
-                            <a href="{{ asset('frontend') }}/cart.html" class="nav-item nav-link">Cart</a>
-                            <a href="{{ asset('frontend') }}/checkout.html" class="nav-item nav-link">Checkout</a>
-                            <a href="{{ asset('frontend') }}/my-account.html" class="nav-item nav-link">My Account</a>
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="product-list.html" class="nav-item nav-link">Products</a>
+                            <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                            <a href="cart.html" class="nav-item nav-link">Cart</a>
+                            <a href="checkout.html" class="nav-item nav-link">Checkout</a>
+                            <a href="my-account.html" class="nav-item nav-link">My Account</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                                 <div class="dropdown-menu">
-                                    <a href="{{ asset('frontend') }}/wishlist.html" class="dropdown-item">Wishlist</a>
-                                    <a href="{{ asset('frontend') }}/login.html" class="dropdown-item">Login & Register</a>
-                                    <a href="{{ asset('frontend') }}/contact.html" class="dropdown-item">Contact Us</a>
+                                    <a href="wishlist.html" class="dropdown-item">Wishlist</a>
+                                    <a href="login.html" class="dropdown-item">Login & Register</a>
+                                    <a href="contact.html" class="dropdown-item">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="{{ asset('frontend') }}/index.html">
+                            <a href="index.html">
                                 <img src="{{ asset('frontend') }}/img/logo.png" alt="Logo">
                             </a>
                         </div>
@@ -102,11 +102,11 @@
                     </div>
                     <div class="col-md-3">
                         <div class="user">
-                            <a href="{{ asset('frontend') }}/wishlist.html" class="btn wishlist">
+                            <a href="wishlist.html" class="btn wishlist">
                                 <i class="fa fa-heart"></i>
                                 <span>(0)</span>
                             </a>
-                            <a href="{{ asset('frontend') }}/cart.html" class="btn cart">
+                            <a href="cart.html" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>(0)</span>
                             </a>
@@ -515,7 +515,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="{{ asset('frontend') }}/product-detail.html">
+                                <a href="product-detail.html">
                                     <img src="{{ asset('frontend') }}/img/product-6.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -543,7 +543,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="{{ asset('frontend') }}/product-detail.html">
+                                <a href="product-detail.html">
                                     <img src="img/product-7.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -571,7 +571,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="{{ asset('frontend') }}/product-detail.html">
+                                <a href="product-detail.html">
                                     <img src="{{ asset('frontend') }}/img/product-8.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -599,7 +599,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="{{ asset('frontend') }}/product-detail.html">
+                                <a href="product-detail.html">
                                     <img src="{{ asset('frontend') }}/img/product-9.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -627,7 +627,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="{{ asset('frontend') }}/product-detail.html">
+                                <a href="product-detail.html">
                                     <img src="{{ asset('frontend') }}/img/product-10.jpg" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -797,11 +797,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 copyright">
-                        <p>Copyright &copy; <a href="{{ asset('frontend') }}/https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
+                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
                     </div>
 
                     <div class="col-md-6 template-by">
-                        <p>Template By <a href="{{ asset('frontend') }}/https://htmlcodex.com">HTML Codex</a></p>
+                        <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
                     </div>
                 </div>
             </div>
@@ -812,8 +812,8 @@
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
         <!-- JavaScript Libraries -->
-        <script src="{{ asset('frontend') }}/https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="{{ asset('frontend') }}/https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="{{ asset('frontend') }}/lib/easing/easing.min.js"></script>
         <script src="{{ asset('frontend') }}/lib/slick/slick.min.js"></script>
 
