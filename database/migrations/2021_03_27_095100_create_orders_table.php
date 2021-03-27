@@ -15,6 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('order_date');
+            $table->string('order_status')->default('pending');
+            $table->integer('total_products');
+            $table->string('sub_total');
+            $table->string('grant_total');
+            $table->string('month');
+            $table->string('year');
             $table->timestamps();
         });
     }
