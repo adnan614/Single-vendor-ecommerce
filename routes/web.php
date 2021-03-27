@@ -19,6 +19,11 @@ Route::get('/', function () {
 
 
 Route::get('/admin', function () {
-    return view('backend.master');
+    return view('backend.home');
+
+});
+
+Route::get('/form', function () {
+    return view('backend.product.form');
 
 });
