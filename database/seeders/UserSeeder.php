@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\User;
 
 use Illuminate\Database\Seeder;
 
@@ -18,8 +19,8 @@ class UserSeeder extends Seeder
             'contact' => '0168092622',
             'email' => 'admin@gmail.com',
             'address' => 'uttara',
-            'gender' => 'female',
             'password' => bcrypt('12315'),
+            'role'=>'admin'
 
         ]);
     }
