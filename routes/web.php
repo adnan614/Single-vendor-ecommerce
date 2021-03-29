@@ -1,9 +1,10 @@
 <?php
-
+use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoriesController;
 use App\Http\Controllers\Backend\ProductsController;
+use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\BrandsController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,3 +66,11 @@ Route::post('/product/product_add/', [ProductsController::class, 'productAdd'])-
 Route::get('/product/product_list/', [ProductsController::class, 'productList'])->name('product.list');
 
 
+//Customer Registration
+Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
+Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+
+
+//Customer Login
+Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
+Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
