@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Toastr;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     public function categoryForm()
     {
