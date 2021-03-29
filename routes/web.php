@@ -1,7 +1,8 @@
 <?php
-
+use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +48,11 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');
+//Customer Registration
+Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
+Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
 
 
+//Customer Login
+Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
+Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
