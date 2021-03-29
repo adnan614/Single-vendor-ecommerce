@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoriesController;
 use App\Http\Controllers\Backend\ProductsController;
 use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\BrandsController;
+use App\Http\Controllers\Backend\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,11 +65,20 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
 Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
 Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
-Route::get('/backend/employee/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
+Route::get('/backend/brand/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
+Route::get('/backend/brand/edit/{id}',[BrandsController::class, 'brandEdit'])->name('brand.edit');
+Route::get('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
 
 
 
 //category
+<<<<<<< HEAD
+Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
+Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
+Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');
+
+Route::get('/slider/slider_form/',[SliderController::class,'sliderForm'])->name('slider.show');
+=======
 Route::get('/category/category_form/', [CategoriesController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoriesController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoriesController::class, 'categoryList'])->name('category.list');
@@ -87,3 +97,4 @@ Route::post('/user/store', [UserController::class, 'userstore'])->name('user.sto
 //Customer Login
 Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
 Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
+>>>>>>> d920eed3b2d6a3353698c2be0b7d4dcb909972ea
