@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
-use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CategoriesController;
+use App\Http\Controllers\Backend\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,8 +45,13 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 
 
 //category
-Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
-Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
-Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');
+Route::get('/category/category_form/', [CategoriesController::class, 'categoryForm'])->name('category.form');
+Route::post('/category/category_add/', [CategoriesController::class, 'categoryAdd'])->name('category.add');
+Route::get('/category/category_list/', [CategoriesController::class, 'categoryList'])->name('category.list');
+
+//product
+Route::get('/product/product_form/', [ProductsController::class, 'productForm'])->name('product.form');
+Route::post('/product/product_add/', [ProductsController::class, 'productAdd'])->name('product.add');
+Route::get('/product/product_list/', [ProductsController::class, 'productList'])->name('product.list');
 
 

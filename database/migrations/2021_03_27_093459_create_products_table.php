@@ -20,7 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('quantity');
             $table->string('color');
-            $table->string('price');
+            $table->string('buying_price');
+            $table->string('selling_price');
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->default(false);
