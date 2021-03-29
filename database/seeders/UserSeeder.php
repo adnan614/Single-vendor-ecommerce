@@ -12,6 +12,9 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
+
+
+    $faker = Faker\Factory::create();
     public function run()
     {
         User::create([
