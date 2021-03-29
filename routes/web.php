@@ -49,6 +49,7 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
 Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
 Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
+Route::get('/backend/employee/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
 
 
 
