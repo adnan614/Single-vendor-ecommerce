@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\Backend\BrandsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,5 @@ Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('s
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 // });
+
+Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
