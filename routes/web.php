@@ -45,12 +45,12 @@ Route::get('/form', function () {
 });
 
 
-<<<<<<< HEAD
+
 
     // admin login
-=======
+
 // admin login
->>>>>>> e2b4ce6fc114709704c265cd428f1817cf6d376f
+
 
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');

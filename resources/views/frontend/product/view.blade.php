@@ -87,41 +87,65 @@
 
 
 
+
+      @foreach ($product as $data )
+
+
+
+
                                     <div class="product-content">
-                                        <div class="title"><h2>Product Name :</h2></div>
+                                         <div class="title"><h2>Product Name :{{ $data->name }}</h2></div>
+                                        {{-- <div class="text-center">
+                                            <p>Product Name:{{ $data->name }}</p>
+                                        </div> --}}
+                                        <div class="category_id">
+                                            <h4>Category Id:{{ $data->category_id }}</h4>
 
+                                        </div>
+                                        <div class="brand_id">
+                                            <h4>Brand Id:{{ $data->brand_id }}</h4>
 
+                                        </div>
 
                                         <div class="price">
                                             <h4>Price:</h4>
-                                            <p>$99 <span>$149</span></p>
+                                            <p>{{ $data->price }} <span></span></p>
                                         </div>
                                         <div class="quantity">
-                                            <h4>Quantity:</h4>
-                                            <div class="qty">
-                                                <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                <input type="text" value="1">
-                                                <button class="btn-plus"><i class="fa fa-plus"></i></button>
-                                            </div>
+                                            <h4>Quantity:{{ $data->quantity }}</h4>
+
                                         </div>
                                         <div class="p-size">
-                                            <h4>Size:</h4>
-
+                                            <h4>Description:{{ $data->description }}</h4>
+                                        </div>
+                                        <div class="product_slug">
+                                            <h4>Product Slug:{{ $data->product_slug }}</h4>
 
                                         </div>
                                         <div class="p-color">
-                                            <h4>Color:</h4>
+                                            <h4>Color:{{ $data->color }}</h4>
+                                            <div class="status">
+                                                <h4>Status:{{ $data->status }}</h4>
 
-                                            
+                                            </div>
+                                           
+
                                         </div>
+
+
                                         <div class="action">
                                             <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                                             <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Buy Now</a>
                                         </div>
+
                                     </div>
+                                    @endforeach
                                 </div>
+
                             </div>
+
                         </div>
+
 
                         <div class="row product-detail-bottom">
                             <div class="col-lg-12">
