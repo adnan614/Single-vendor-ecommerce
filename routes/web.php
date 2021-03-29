@@ -2,11 +2,8 @@
 
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
-<<<<<<< HEAD
 use App\Http\Controllers\Backend\BrandsController;
-=======
 use App\Http\Controllers\Backend\CategoryController;
->>>>>>> e2b4ce6fc114709704c265cd428f1817cf6d376f
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +45,11 @@ Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.logi
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 // });
 
+//brand
 Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
+Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
+Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
+
 
 
 //category
