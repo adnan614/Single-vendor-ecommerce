@@ -3,6 +3,7 @@
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,3 +49,5 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');
+
+Route::get('/slider/slider_form/',[SliderController::class,'sliderForm'])->name('slider.show');
