@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Product;
 use Toastr;
 
 class ProductsController extends Controller
@@ -58,14 +59,15 @@ class ProductsController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
         }
-        $productStore = new Product;
-        $productStore->category_id = $data['category_id'];
-        $productStore->brand_id = $data['brand_id'];
+        $productStore = new product;
+        $productStore->category_id = $data['parent_id'];
+        $productStore->brand_id = $data['id'];
         $productStore->name = $data['name'];
         $productStore->quantity = $data['quantity'];
         $productStore->color = $data['color'];
         $productStore->buying_price = $data['buying_price'];
         $productStore->selling_price = $data['selling_price'];
+        $productStore->product_slug = $data['product_slug'];
         $productStore->description = $data['description'];
 
 
@@ -75,6 +77,7 @@ class ProductsController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('upload/', $filename);
             $productStore->image = $filename;
+
         }
         $productStore->save();
 
@@ -86,8 +89,8 @@ class ProductsController extends Controller
 
     public function productList()
     {
-        // $productStore=Product::with('vendorRelation','categoryRelation')->get();
+        $productStore=Product::with('categoryRelation')->get();
           
-        return view('backend.layouts.product.product_list');
+        return view('backend.layouts.product.product_list', compact('productStore'));
     }
 }

@@ -24,6 +24,7 @@ class BrandsController extends Controller
             $data = $request->all();
             $brands = new brand;
             $brands->name = $data['name'];
+            $brands->brand_slug = $data['brand_slug'];
             $brands->description = $data['description'];
             $brands->save();
         }

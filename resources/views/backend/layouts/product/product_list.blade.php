@@ -29,11 +29,40 @@
                       <th class="px-4 py-3">ID</th>
                       <th class="px-4 py-3">Product Name</th>
                       <th class="px-4 py-3">Category Name</th>
-                      <th class="px-4 py-3">Brand Name</th>
+                      <th class="px-4 py-3">Image</th>
                       <th class="px-4 py-3">Prize</th>
                       <th class="px-4 py-3">Action</th>
                     </tr>
                   </thead>
+
+                  <tbody
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                    @foreach($productStore as $key=>$ps)
+                            <tr class="text-gray-700 dark:text-gray-400">
+                            <th scope="row">{{$key+1}}</th>
+
+                                <td class="px-4 py-3 text-sm">
+                                 {{$ps->name}}
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                {{$ps->categoryRelation->category_name}}
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                <img src="{{ asset('upload/'.$ps->image) }}" width="75px" height="75px">
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                {{$ps->selling_price}}
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                <a href="#" class="btn btn-sm btn-info">Delete</a>
+                                    <a href="#" class="btn btn-sm btn-info">view</a>
+                                    <a href="#" class="btn btn-sm btn-info">edit</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                   
+                             
+                  </tbody>
                  
                 </table>
                 </div>
