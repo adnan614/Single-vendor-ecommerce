@@ -17,13 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.layouts.home');
+    return view ('frontend.layouts.home');
 });
+
+// Route::get('/m', function () {
+//     return view ('frontend.product.view');
+// });
+
 
 
 //frontend
-Route::get('/frontend/product/product', [ProductController::class, 'view'])->name('frontend.product.product');
-
+//Route::get('/frontend/product/product', [ProductController::class,'view'])->name ('frontend.product.product');
+Route::get('/frontend/product/view', [ProductController::class,'view'])->name ('frontend.product.view');
 // Admin Dashboard
 
 // Route::group(['middleware' => 'admin'], function () {
@@ -36,7 +41,7 @@ Route::get('/frontend/product/product', [ProductController::class, 'view'])->nam
         return view('backend.product.form');
     });
 
-    
+
     // admin login
 
     Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');

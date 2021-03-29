@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="{{ route('frontend.product.product') }}" class="nav-item nav-link">Products</a>
+                    <a href="{{ route('frontend.product.view') }}" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
                     <a href="checkout.html" class="nav-item nav-link">Checkout</a>

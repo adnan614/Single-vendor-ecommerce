@@ -9,7 +9,11 @@ use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
     public function view(){
-        // $product =Product::all();
-        return view ('frontend.product.product');
+         $product =Product::all();
+        return view ('frontend.product.view');
     }
+    // public function show(){
+    //     // $product =Product::all();
+    //     return view ('frontend.product.view');
+    // }
 }
