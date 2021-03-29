@@ -48,8 +48,33 @@ class BrandsController extends Controller
         } else {
             $message = "No data found.";
         }
+        Toastr::success('Brand deleted successfully', 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->back()->with('message', $message);
     }
-    
+
+    //edit brand
+
+    public function brandEdit($id){
+
+        $brands=Brand::find($id);
+      
+       return view('backend.layouts.brand.brand_edit',compact('brands'));
+    }
+
+    //update brand
+
+public function brandUpdate(Request $request,$id){
+
+
+    $brands=Brand::find($id);
+    $brands->update([
+        'name'=>$request->input('name'),
+        'description'=>$request->input('description'),
+    ]);
+    Toastr::success('Brand updated successfully', 'Success', ["positionClass" => "toast-top-right"]);
+    return redirect()->back();
+
+
+ }
 
 }
