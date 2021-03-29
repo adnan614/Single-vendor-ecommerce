@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function view(){
          $product =Product::all();
-        return view ('frontend.product.view');
+        return view ('frontend.product.view',compact('product'));
     }
     // public function show(){
     //     // $product =Product::all();

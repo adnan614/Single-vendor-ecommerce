@@ -90,7 +90,7 @@
                                     <div class="product-content">
                                         <div class="title"><h2>Product Name :</h2></div>
 
-                                      
+
 
                                         <div class="price">
                                             <h4>Price:</h4>
@@ -106,20 +106,13 @@
                                         </div>
                                         <div class="p-size">
                                             <h4>Size:</h4>
-                                            <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn">S</button>
-                                                <button type="button" class="btn">M</button>
-                                                <button type="button" class="btn">L</button>
-                                                <button type="button" class="btn">XL</button>
-                                            </div>
+
+
                                         </div>
                                         <div class="p-color">
                                             <h4>Color:</h4>
-                                            <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn">White</button>
-                                                <button type="button" class="btn">Black</button>
-                                                <button type="button" class="btn">Blue</button>
-                                            </div>
+
+                                            
                                         </div>
                                         <div class="action">
                                             <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
