@@ -1,7 +1,9 @@
 <?php
-
+use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\frontend\LoginController as Login;
+use App\Http\Controllers\Backend\BrandsController;
 use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,9 +57,25 @@ Route::get('/form', function () {
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
+// });
+
+//brand
+Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
+Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
+Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
+Route::get('/backend/employee/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
+
 
 
 //category
 Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');
+//Customer Registration
+Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
+Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+
+
+//Customer Login
+Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
+Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
