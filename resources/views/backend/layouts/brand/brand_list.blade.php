@@ -45,7 +45,7 @@
                                 {{$data->description}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                <a href="#" class="btn btn-sm btn-info">Delete</a>
+                                <a href="{{route('brand.delete',$data->id)}}" class="btn btn-sm btn-info">Delete</a>
                                     <a href="#" class="btn btn-sm btn-info">view</a>
                                     <a href="#" class="btn btn-sm btn-info">edit</a>
                                 </td>

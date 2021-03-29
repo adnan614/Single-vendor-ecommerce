@@ -38,5 +38,18 @@ class BrandsController extends Controller
         
         return view('backend.layouts.brand.brand_list', compact('brands'));
     }
+//delete brand
+    public function brandDelete($id)
+    {
+        $brands = Brand::find($id);
+        if (!empty($brands)) {
+            $brands->delete();
+            $message = "Brand deleted Successfully";
+        } else {
+            $message = "No data found.";
+        }
+        return redirect()->back()->with('message', $message);
+    }
+    
 
 }
