@@ -84,11 +84,12 @@ class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-
         </svg>
         <span class="ml-4">Product</span>
       </a>
+      
     </li>
     <li class="relative px-6 py-3">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-        href="charts.html"
+        href="{{route('brand.list')}}"
       >
         <svg
           class="w-5 h-5"
@@ -105,7 +106,7 @@ class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-
           ></path>
           <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
         </svg>
-        <span class="ml-4">Charts</span>
+        <span class="ml-4">Brands</span>
       </a>
     </li>
     <li class="relative px-6 py-3">

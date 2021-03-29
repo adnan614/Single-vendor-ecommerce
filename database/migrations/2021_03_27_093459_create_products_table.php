@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('color');
             $table->string('buying_price');
             $table->string('selling_price');
+            $table->string('product_slug');
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->default(false);

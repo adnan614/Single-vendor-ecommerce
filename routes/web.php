@@ -4,6 +4,7 @@ use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoriesController;
 use App\Http\Controllers\Backend\ProductsController;
+use App\Http\Controllers\Backend\BrandsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view ('frontend.layouts.home');
+    return view('frontend.layouts.home');
 });
 
 
-// Admin Dashboard
+//frontend
+Route::get('/frontend/product/product', [ProductController::class, 'view'])->name('frontend.product.product');
 
-// Route::group(['middleware' => 'admin'], function () {
+
+
+// Admin Dashboard
 
 Route::get('/admin', function () {
     return view('backend.home');
@@ -34,14 +38,20 @@ Route::get('/form', function () {
     return view('backend.product.form');
 });
 
-//frontend
-Route::get('/frontend/product/product',[ProductController::class,'view'])->name('frontend.product.product');
+
 // admin login
 
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 // });
+
+//brand
+Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
+Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
+Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
+Route::get('/backend/employee/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
+
 
 
 //category
