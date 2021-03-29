@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
+<<<<<<< HEAD
 use App\Http\Controllers\Backend\BrandsController;
+=======
+use App\Http\Controllers\Backend\CategoryController;
+>>>>>>> e2b4ce6fc114709704c265cd428f1817cf6d376f
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +21,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view ('frontend.layouts.home');
+    return view('frontend.layouts.home');
 });
 
 
-// Admin Dashboard
+//frontend
+Route::get('/frontend/product/product', [ProductController::class, 'view'])->name('frontend.product.product');
 
-// Route::group(['middleware' => 'admin'], function () {
+
+
+// Admin Dashboard
 
 Route::get('/admin', function () {
     return view('backend.home');
@@ -33,8 +40,7 @@ Route::get('/form', function () {
     return view('backend.product.form');
 });
 
-//frontend
-Route::get('/frontend/product/product',[ProductController::class,'view'])->name('frontend.product.product');
+
 // admin login
 
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
@@ -43,3 +49,9 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 // });
 
 Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
+
+
+//category
+Route::get('/category/category_form/', [CategoryController::class, 'categoryForm'])->name('category.form');
+Route::post('/category/category_add/', [CategoryController::class, 'categoryAdd'])->name('category.add');
+Route::get('/category/category_list/', [CategoryController::class, 'categoryList'])->name('category.list');

@@ -20,7 +20,7 @@ class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-
       ></span>
       <a
         class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-        href="index.html"
+        href="#"
       >
         <svg
           class="w-5 h-5"
@@ -44,7 +44,7 @@ class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-
     <li class="relative px-6 py-3">
       <a
         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-        href="forms.html"
+        href="{{route('category.list')}}"
       >
         <svg
           class="w-5 h-5"
@@ -60,7 +60,7 @@ class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-
             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
           ></path>
         </svg>
-        <span class="ml-4">Forms</span>
+        <span class="ml-4">Category</span>
       </a>
     </li>
     <li class="relative px-6 py-3">
