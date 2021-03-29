@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.master');
+    return view ('frontend.layouts.home');
 });
 
 
@@ -32,6 +33,8 @@ Route::get('/form', function () {
     return view('backend.product.form');
 });
 
+//frontend
+Route::get('/frontend/product/product',[ProductController::class,'view'])->name('frontend.product.product');
 // admin login
 
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
