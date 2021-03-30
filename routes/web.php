@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\frontend\ProductController;
 use App\Http\Controllers\Backend\LoginController;
@@ -11,24 +12,34 @@ use App\Http\Controllers\Backend\SliderController;
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
+
     return view ('frontend.layouts.home');
 })->name('frontend.layouts.home');
 
 
 
 
+
+
+
+
+
+
+//frontend
+
+Route::get('/frontend/product/view', [ProductController::class, 'view'])->name('frontend.product.view');
+
+
+//Customer Registration
+Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
+Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+
+
+//Customer Login
+Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
+Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
 
 
 //frontend
@@ -64,16 +75,32 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 // });
 
 //brand
-Route::get('/backend/brand/brand_form',[BrandsController::class,'brandForm'])->name('brand.form');
+Route::get('/backend/brand/brand_form', [BrandsController::class, 'brandForm'])->name('brand.form');
 Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
 Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
+
+
+
 Route::get('/backend/brand/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
 Route::get('/backend/brand/edit/{id}',[BrandsController::class, 'brandEdit'])->name('brand.edit');
-Route::get('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
+Route::put('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
 
+
+// slider
+
+Route::get('/slider/slider_list/', [SliderController::class, 'sliderForm'])->name('slider.show');
+
+Route::get('/slider/slider_form/', [SliderController::class, 'addSlider'])->name('slider.form');
+Route::post('/slider/add_slider',[SliderController::class,'create'])->name('add.slider');
+
+Route::delete('/slider/delete/{id}',[SliderController::class,'delete'])->name('slider.delete');
 
 
 //category
+
+
+
+
 Route::get('/category/category_form/', [CategoriesController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoriesController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoriesController::class, 'categoryList'])->name('category.list');
@@ -84,9 +111,13 @@ Route::post('/product/product_add/', [ProductsController::class, 'productAdd'])-
 Route::get('/product/product_list/', [ProductsController::class, 'productList'])->name('product.list');
 
 
+
+
 //Customer Registration
 Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
 Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+Route::get('/user/customer_list/', [UserController::class, 'customerList'])->name('customer.list');
+
 
 
 //Customer Login
@@ -94,5 +125,5 @@ Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
 Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
 
 
-//slider
-Route::get('/slider/slider_form/',[SliderController::class,'sliderForm'])->name('slider.show');
+
+
