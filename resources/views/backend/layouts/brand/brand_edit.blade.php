@@ -6,11 +6,12 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Add Brand
+              Edit Brand
             </h2>
 
             <!-- General elements -->
-            <form method="post" action="{{route('brand.add')}}">
+            <form method="post" action="{{route('brand.update',$brands->id)}}">
+            @method('put')
             @csrf
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
@@ -20,7 +21,7 @@
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                   type="text" id="name" name="name"
-                  placeholder="Enter Brand Name"
+                  required value="{{$brands->name}}"
                 />
               </label>
 
@@ -33,15 +34,13 @@
                   type="text"
                   id="description"
                   name="description"
-                  placeholder="Enter Description"
+                  required value="{{$brands->description}}"
                 ></input>
-
-                <input type="hidden" name="brand_slug" value="brand slug">
 
                 <button
                   class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="float:right; margin: 4% 0%;" type="submit"
                 >
-                  Add Brand
+                  Edit Brand
                 </button>
               </label>
 

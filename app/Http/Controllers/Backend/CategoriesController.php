@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Toastr;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     public function categoryForm()
     {
@@ -24,6 +24,7 @@ class CategoryController extends Controller
             $category->category_name = $data['category_name'];
             $category->parent_id = $data['parent_id'];
             $category->description = $data['description'];
+            $category->category_slug = $data['category_slug'];
             $category->save();
         }
         Toastr::success('Category inserted successfully', 'Success', ["positionClass" => "toast-top-right"]);
