@@ -14,6 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
   <script src="{{asset('backend')}}/js/charts-lines.js" defer></script>
   <script src="{{asset('backend')}}/js/charts-pie.js" defer></script>
+  
 </head>
 
 <body>
@@ -156,7 +157,35 @@
   </div>
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   {!! Toastr::message() !!}
+
+  <script type="text/javascript">
+        /* ==============================================
+            Counter Up
+            =============================================== */
+        jQuery(document).ready(function($) {
+            $('.counter').counterUp({
+                delay: 100,
+                time: 1200
+            });
+        });
+        $('.sa-delete').on('click', function() {
+            let form_id = $(this).data('form-id');
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $('#' + form_id).submit();
+                    }
+                });
+        })
+    </script>
 </body>
 
 </html>

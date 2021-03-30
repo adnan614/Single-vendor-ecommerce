@@ -12,7 +12,9 @@ class SliderController extends Controller
 {
     public function sliderForm()
     {
-        return view('backend.slider.slider_list');
+
+        $slider = Slider::all();
+        return view('backend.slider.slider_list',compact('slider'));
     }
 
     public function addSlider()
@@ -22,29 +24,39 @@ class SliderController extends Controller
 
     public function create(Request $request)
     {
+
        
-        $request->validate([
-              'name'=> 'required',
-              'slug_name'=>'required',
-              'image'=>'required'
-        ]);
+       
 
-        $slideCreate = new slider;
+        $sliderCreate = new slider;
 
-        $slideCreate->name = $request->name;
-        $slideCreate->slider_slug = $request->slug_name;
-        $slideCreate->description = $request->description;
+        $sliderCreate->name = $request->name;
+        $sliderCreate->slider_slug = $request->slug_name;
+        $sliderCreate->description = $request->description;
 
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); //getting image extension
             $filename = time() . '.' . $extension;
             $file->move('upload/', $filename);
-             $slideCreate->image = $filename;
+            $sliderCreate->image = $filename;
+
+        
         }
-         $slideCreate->save();
+      
+        $sliderCreate->save();
 
           Toastr::success('slider inserted successfully', 'Success', ["positionClass" => "toast-top-center"]);
+
+          return back();
+
+    }
+    public function delete($id)
+    {
+          $slider = Slider::find($id);
+          $slider->delete();
+
+          Toastr::success('Role Deleted Successfully', 'Success', ["positionClass" => "toast-top-center"]);
 
           return back();
 

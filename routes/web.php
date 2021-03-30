@@ -66,7 +66,13 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::get('/backend/brand/brand_form', [BrandsController::class, 'brandForm'])->name('brand.form');
 Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])->name('brand.add');
 Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
-Route::get('/backend/employee/delete/{id}', [BrandsController::class, 'brandDelete'])->name('brand.delete');
+
+
+
+Route::get('/backend/brand/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
+Route::get('/backend/brand/edit/{id}',[BrandsController::class, 'brandEdit'])->name('brand.edit');
+Route::get('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
+
 
 // slider
 
@@ -75,8 +81,12 @@ Route::get('/slider/slider_list/', [SliderController::class, 'sliderForm'])->nam
 Route::get('/slider/slider_form/', [SliderController::class, 'addSlider'])->name('slider.form');
 Route::post('/slider/add_slider',[SliderController::class,'create'])->name('add.slider');
 
+Route::delete('/slider/delete/{id}',[SliderController::class,'delete'])->name('slider.delete');
+
 
 //category
+
+
 
 
 Route::get('/category/category_form/', [CategoriesController::class, 'categoryForm'])->name('category.form');
@@ -87,3 +97,18 @@ Route::get('/category/category_list/', [CategoriesController::class, 'categoryLi
 Route::get('/product/product_form/', [ProductsController::class, 'productForm'])->name('product.form');
 Route::post('/product/product_add/', [ProductsController::class, 'productAdd'])->name('product.add');
 Route::get('/product/product_list/', [ProductsController::class, 'productList'])->name('product.list');
+
+
+
+
+//Customer Registration
+Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
+Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+
+
+//Customer Login
+Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
+Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
+
+
+

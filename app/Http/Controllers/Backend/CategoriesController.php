@@ -24,6 +24,7 @@ class CategoriesController extends Controller
             $category->category_name = $data['category_name'];
             $category->parent_id = $data['parent_id'];
             $category->description = $data['description'];
+            $category->category_slug = $data['category_slug'];
             $category->save();
         }
         Toastr::success('Category inserted successfully', 'Success', ["positionClass" => "toast-top-right"]);

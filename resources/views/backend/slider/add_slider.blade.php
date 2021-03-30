@@ -8,7 +8,7 @@
     </h2>
 
     <!-- General elements -->
-    <form method="post" action="{{route('add.slider')}}">
+    <form method="post" action="{{route('add.slider')}}" enctype="multipart/form-data">
         @csrf
         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <label class="block text-sm">
@@ -22,7 +22,7 @@
 
              <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">slider image</span>
-                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="file" id="name" name="image" placeholder="Enter slider image" />
+                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="file" id="image" name="image" placeholder="Enter slider image" />
             </label>
 
             <label class="block mt-4 text-sm">
