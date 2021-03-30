@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\BrandsController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\frontend\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,26 +21,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view ('frontend.layouts.home');
-});
+})->name('frontend.layouts.home');
 
-// Route::get('/m', function () {
-//     return view ('frontend.product.view');
-// });
+
 
 
 
 
 //frontend
-//Route::get('/frontend/product/product', [ProductController::class,'view'])->name ('frontend.product.product');
+//product
 Route::get('/frontend/product/view', [ProductController::class,'view'])->name ('frontend.product.view');
-
+//category
+// Route::get('/frontend/category/view',[CategoriesController::class,'view'])->name('frontend.product.view');
 
 
 
 // Admin Dashboard
 
 Route::get('/admin', function () {
-    return view('backend.home');
+    return view ('backend.home');
 });
 
 Route::get('/form', function () {
