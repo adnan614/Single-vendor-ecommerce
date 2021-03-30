@@ -86,16 +86,13 @@ Route::get('/product/product_list/', [ProductsController::class, 'productList'])
 Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
 Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
 Route::get('/user/customer_list/', [UserController::class, 'customerList'])->name('customer.list');
+Route::get('/backend/customer/delete/{id}',[UserController::class, 'customerDelete'])->name('customer.delete');
+
 
 
 
 //Customer Login
 Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
 Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 972dce55662fe7940992dd719c50dc2d265d5811
 //slider
 Route::get('/slider/slider_form/',[SliderController::class,'sliderForm'])->name('slider.show');

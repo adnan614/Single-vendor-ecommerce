@@ -46,6 +46,8 @@ class UserController extends Controller
         return view('backend.layouts.customer.customer_list', compact('users'));
     }
 
+    
+
 
     }
 
