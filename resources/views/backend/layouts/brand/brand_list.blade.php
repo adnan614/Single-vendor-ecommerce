@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive table--no-card m-b-30">
-
+                    
                     <br>
                     <br>
 
@@ -33,6 +33,8 @@
                     </tr>
                   </thead>
                   <tbody
+
+                  
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                     @foreach($brands as $key=>$data)
                             <tr class="text-gray-700 dark:text-gray-400">

@@ -67,7 +67,7 @@ Route::post('/backend/brand/brand_add/', [BrandsController::class, 'brandAdd'])-
 Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])->name('brand.list');
 Route::get('/backend/brand/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
 Route::get('/backend/brand/edit/{id}',[BrandsController::class, 'brandEdit'])->name('brand.edit');
-Route::get('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
+Route::put('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
 
 
 

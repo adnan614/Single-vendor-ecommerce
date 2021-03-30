@@ -11,46 +11,62 @@ use Toastr;
 
 class ProductsController extends Controller
 {
+    public $categories_dropdown='';
     public function productForm()
     {
-        //previous way
-
         // $categories = Category::where('parent_id', 0)->get();
-        // $categories_dropdown = "<option value='' selected disabled>Select</option>";
+        // $categories_dropdown = "<option value='' selected  disabled>Select</option>";
         // foreach ($categories as $cat) {
-        //     $categories_dropdown .= "<option value='" . $cat->id . "' selected disabled>" . $cat->cat_name . "</option>";
+        //     $categories_dropdown .= "<option value='" . $cat->id . "'  >" . $cat->category_name . "</option>";
         //     $sub_categories = Category::where('parent_id', $cat->id)->get();
         //     foreach ($sub_categories as $sub_cat) {
-        //         $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->cat_name . "</option>";
-        //     }
-        // }
-
-
-       
-        //new way
-
-        // $all = Category::where('parent_id', 1)->get();
-        // if(count($all)>0){
-
-        //     foreach($all as $child){
-        //         $elsechild = Category::where('parent_id', $child->id)->get();
-        //         if($elsechild->count() > 0){
-        //            echo $child;
-        //            productForm($child->id);
+        //         $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->category_name . "</option>";
+        //         $sub_sub_categories = Category::where('parent_id', $sub_cat->id)->get();
+        //         foreach ($sub_sub_categories as $sub_sub_cat) {
+        //             $categories_dropdown .= "<option value='" . $sub_sub_cat->id . "'>&nbsp;--&nbsp --&nbsp" . $sub_sub_cat->category_name . "</option>";
         //         }
-               
         //     }
-
         // }
 
+    
+        $parents = Category::where('parent_id', 0)->get();
+        foreach($parents as $parent){
+            $this->categories_dropdown.=$parent->category_name;
+            //dd($this->categories_dropdown);
+            $this->getChild($parent->id);
+        }
+        return $this->categories_dropdown;
 
-        $categories = Category::all();
+
+        
+        // $categories = Category::all();
+        // $brands = Brand::all();
+
+
+        // return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
+        
+
+        
+    }
+
+
+    
+
+    function getChild($id){
+        
         $brands = Brand::all();
-
-        return view('backend.layouts.product.product_form', compact('categories', 'brands'));
-        
-
-        
+            $child = Category::where('parent_id', $id)->get();
+            if(count($child) > 0){
+                foreach($child as $data){
+                    $this->categories_dropdown .= "<option value='" . $data->id . "'  >" . $data->category_name . "</option>";
+                    $this->getChild($data->id);
+                    return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
+                }
+                return view('backend.layouts.product.product_form');
+              
+            }else{
+                return view('backend.layouts.product.product_form');
+            }
     }
 
 
@@ -60,7 +76,7 @@ class ProductsController extends Controller
             $data = $request->all();
         }
         $productStore = new product;
-        $productStore->category_id = $data['parent_id'];
+        $productStore->category_id = $data['category_id'];
         $productStore->brand_id = $data['id'];
         $productStore->name = $data['name'];
         $productStore->quantity = $data['quantity'];

@@ -10,7 +10,7 @@
             </h2>
 
             <!-- General elements -->
-            <form method="post" action="{{route('brand.update',$brands->id)}}">
+            <form method="post" action="{{route('brand.update',$brands->slug)}}">
             @method('put')
             @csrf
             <div
