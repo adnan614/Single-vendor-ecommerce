@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 
 class CategoriesController extends Controller
 {
-    // public function view(){
-    //     $category=Category::all();
-    //     return view ('frontend.product.view',compact('category'));
-    // }
+    public function view(){
+        $category=Category::all();
+        return view ('frontend.product.view',compact('category'));
+    }
 }

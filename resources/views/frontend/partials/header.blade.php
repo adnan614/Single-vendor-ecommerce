@@ -14,8 +14,10 @@
                 <div class="navbar-nav mr-auto">
                     <a href="{{ route('frontend.layouts.home') }}" class="nav-item nav-link ">Home</a>
                     <a href="category.html" class="nav-item nav-link ">Category</a>
-                    <a href="{{ route('frontend.product.view') }}" class="nav-item nav-link">Products</a>
-                    <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                    <a href="{{ route('frontend.product.allview') }}" class="nav-item nav-link">Products</a>
+
+                    <a href="{{ route('frontend.product.view') }}" class="nav-item nav-link">Product Detail</a>
+
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
                     <a href="checkout.html" class="nav-item nav-link">Checkout</a>
                     <a href="my-account.html" class="nav-item nav-link">My Account</a>

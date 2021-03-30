@@ -33,7 +33,8 @@ Route::get('/', function () {
 
 //frontend
 //product
-Route::get('/frontend/product/view', [ProductController::class,'view'])->name ('frontend.product.view');
+Route::get('/frontend/product/view/{id}', [ProductController::class,'view'])->name ('frontend.product.view');
+Route::get('/frontend/product/allview', [ProductController::class,'allview'])->name ('frontend.product.allview');
 //category
 // Route::get('/frontend/category/view',[CategoriesController::class,'view'])->name('frontend.product.view');
 
@@ -46,13 +47,13 @@ Route::get('/admin', function () {
 });
 
 Route::get('/form', function () {
-    return view('backend.product.form');
+    return view ('backend.product.form');
 });
 
 
 
 
-    // admin login
+
 
 // admin login
 
