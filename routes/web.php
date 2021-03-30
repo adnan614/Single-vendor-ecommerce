@@ -71,7 +71,7 @@ Route::get('/backend/brand/brand_list/', [BrandsController::class, 'brandList'])
 
 Route::get('/backend/brand/delete/{id}',[BrandsController::class, 'brandDelete'])->name('brand.delete');
 Route::get('/backend/brand/edit/{id}',[BrandsController::class, 'brandEdit'])->name('brand.edit');
-Route::get('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
+Route::put('/backend/brand/update/{id}',[BrandsController::class, 'brandUpdate'])->name('brand.update');
 
 
 // slider
@@ -104,11 +104,14 @@ Route::get('/product/product_list/', [ProductsController::class, 'productList'])
 //Customer Registration
 Route::get('/user/form', [UserController::class, 'userform'])->name('user.form');
 Route::post('/user/store', [UserController::class, 'userstore'])->name('user.store');
+Route::get('/user/customer_list/', [UserController::class, 'customerList'])->name('customer.list');
+
 
 
 //Customer Login
 Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
 Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
+
 
 
 
