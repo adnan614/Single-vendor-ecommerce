@@ -142,13 +142,13 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="{{ asset('frontend') }}/img/product-1.jpg" alt="Product Image">
+                                        <a href="">
+                                            <img src="{{ asset('upload/'.$data->image) }}" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
                                             <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
+                                            <a href="{{ route('frontend.product.view',$data->id) }}"><i class="fa fa-search"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-price">

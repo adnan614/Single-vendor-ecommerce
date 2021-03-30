@@ -16,7 +16,7 @@
                     <a href="category.html" class="nav-item nav-link ">Category</a>
                     <a href="{{ route('frontend.product.allview') }}" class="nav-item nav-link">Products</a>
 
-                    <a href="{{ route('frontend.product.view') }}" class="nav-item nav-link">Product Detail</a>
+                    <a href="" class="nav-item nav-link">Product Detail</a>
 
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
                     <a href="checkout.html" class="nav-item nav-link">Checkout</a>

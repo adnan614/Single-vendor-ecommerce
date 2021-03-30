@@ -85,21 +85,17 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="product-slider-single normal-slider">
-                                        <img src="{{ asset('frontend') }}/img/product-1.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend') }}/img/product-3.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend') }}/img/product-5.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend') }}/img/product-7.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend') }}/img/product-9.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend') }}/img/product-10.jpg" alt="Product Image">
+                                        <img src="{{ asset('upload/'.$product->image) }}" alt="Product Image">
+
                                     </div>
-                                    <div class="product-slider-single-nav normal-slider">
+                                    {{-- <div class="product-slider-single-nav normal-slider">
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-1.jpg" alt="Product Image"></div>
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-3.jpg" alt="Product Image"></div>
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-5.jpg" alt="Product Image"></div>
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-7.jpg" alt="Product Image"></div>
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-9.jpg" alt="Product Image"></div>
                                         <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-10.jpg" alt="Product Image"></div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-md-7">
                                     <div class="product-content">
@@ -112,32 +108,32 @@
                                             <i class="fa fa-star"></i>
                                         </div>
                                         <div class="price">
-                                            <h4>Price:</h4>
-                                            <p>$99 <span>$149</span></p>
+                                            <h4>Price:{{ $product->selling_price }}</h4>
+                                            <p> <span>$149</span></p>
                                         </div>
                                         <div class="quantity">
-                                            <h4>Quantity:</h4>
+                                            <h4>Quantity:{{ $product->quantity }}</h4>
                                             <div class="qty">
-                                                <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                {{-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
                                                 <input type="text" value="1">
-                                                <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                <button class="btn-plus"><i class="fa fa-plus"></i></button> --}}
                                             </div>
                                         </div>
                                         <div class="p-size">
                                             <h4>Size:</h4>
                                             <div class="btn-group btn-group-sm">
                                                 <button type="button" class="btn">S</button>
-                                                <button type="button" class="btn">M</button>
+                                                {{-- <button type="button" class="btn">M</button>
                                                 <button type="button" class="btn">L</button>
-                                                <button type="button" class="btn">XL</button>
+                                                <button type="button" class="btn">XL</button> --}}
                                             </div>
                                         </div>
                                         <div class="p-color">
                                             <h4>Color:</h4>
                                             <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn">White</button>
-                                                <button type="button" class="btn">Black</button>
-                                                <button type="button" class="btn">Blue</button>
+                                                <button type="button" class="btn">{{ $product->color }}</button>
+                                                {{-- <button type="button" class="btn">Black</button>
+                                                <button type="button" class="btn">Blue</button> --}}
                                             </div>
                                         </div>
                                         <div class="action">
