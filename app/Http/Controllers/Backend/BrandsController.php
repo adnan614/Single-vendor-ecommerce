@@ -77,5 +77,15 @@ public function brandUpdate(Request $request,$id){
 
 
  }
+   public function delete($id)
+    {
+          $brands = Brand::find($id);
+          $brands->delete();
+
+          Toastr::success('Brand Deleted Successfully', 'Success', ["positionClass" => "toast-top-center"]);
+
+          return back();
+
+    }
 
 }

@@ -1,7 +1,16 @@
 @extends('frontend.master')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>E Store - eCommerce HTML Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="eCommerce HTML Template Free Download" name="keywords">
+        <meta content="eCommerce HTML Template Free Download" name="description">
+
         <!-- Favicon -->
-        <link href="{{ asset('frontend')}}/img/favicon.ico" rel="icon">
+        <link href="{{ asset('frontend') }}/img/favicon.ico" rel="icon">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
@@ -9,13 +18,14 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="{{ asset('frontend')}}/lib/slick/slick.css" rel="stylesheet">
-        <link href="{{ asset('frontend')}}/lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="{{ asset('frontend') }}/lib/slick/slick.css" rel="stylesheet">
+        <link href="{{ asset('frontend') }}/lib/slick/slick-theme.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="{{ asset('frontend')}}/css/style.css" rel="stylesheet">
+        <link href="{{ asset('frontend') }}/css/style.css" rel="stylesheet">
     </head>
 
+    <body>
 
 
 
@@ -27,7 +37,7 @@
                     <div class="col-md-3">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="{{ asset('frontend')}}/img/logo.png" alt="Logo">
+                                <img src="{{ asset('frontend') }}/img/logo.png" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -54,7 +64,17 @@
         </div>
         <!-- Bottom Bar End -->
 
-
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Product Detail</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
 
         <!-- Product Detail Start -->
         <div class="product-detail">
@@ -65,87 +85,65 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="product-slider-single normal-slider">
-                                        <img src="{{ asset('frontend')}}/img/product-1.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend')}}/img/product-3.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend')}}/img/product-5.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend')}}/img/product-7.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend')}}/img/product-9.jpg" alt="Product Image">
-                                        <img src="{{ asset('frontend')}}/img/product-10.jpg" alt="Product Image">
+                                        <img src="{{ asset('upload/'.$product->image) }}" alt="Product Image">
+
                                     </div>
-                                    <div class="product-slider-single-nav normal-slider">
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-1.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-3.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-5.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-7.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-9.jpg" alt="Product Image"></div>
-                                        <div class="slider-nav-img"><img src="{{ asset('frontend')}}/img/product-10.jpg" alt="Product Image"></div>
-                                    </div>
+                                    {{-- <div class="product-slider-single-nav normal-slider">
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-1.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-3.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-5.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-7.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-9.jpg" alt="Product Image"></div>
+                                        <div class="slider-nav-img"><img src="{{ asset('frontend') }}/img/product-10.jpg" alt="Product Image"></div>
+                                    </div> --}}
                                 </div>
                                 <div class="col-md-7">
-
-
-
-
-
-
-      @foreach ($product as $data )
-
-
-
-
                                     <div class="product-content">
-                                         <div class="title"><h2>Product Name :{{ $data->name }}</h2></div>
-                                        {{-- <div class="text-center">
-                                            <p>Product Name:{{ $data->name }}</p>
-                                        </div> --}}
-                                        <div class="category_id">
-                                            <h4>Category Id:{{ $data->category_id }}</h4>
-
+                                        <div class="title"><h2>{{ $product->name }}</h2></div>
+                                        <div class="ratting">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
-                                        <div class="brand_id">
-                                            <h4>Brand Id:{{ $data->brand_id }}</h4>
-
-                                        </div>
-
                                         <div class="price">
-                                            <h4>Price:</h4>
-                                            <p>{{ $data->price }} <span></span></p>
+                                            <h4>Price:{{ $product->selling_price }}</h4>
+                                            <p> <span>$149</span></p>
                                         </div>
                                         <div class="quantity">
-                                            <h4>Quantity:{{ $data->quantity }}</h4>
-
+                                            <h4>Quantity:{{ $product->quantity }}</h4>
+                                            <div class="qty">
+                                                {{-- <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                <input type="text" value="1">
+                                                <button class="btn-plus"><i class="fa fa-plus"></i></button> --}}
+                                            </div>
                                         </div>
                                         <div class="p-size">
-                                            <h4>Description:{{ $data->description }}</h4>
-                                        </div>
-                                        <div class="product_slug">
-                                            <h4>Product Slug:{{ $data->product_slug }}</h4>
-
+                                            <h4>Size:</h4>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn">S</button>
+                                                {{-- <button type="button" class="btn">M</button>
+                                                <button type="button" class="btn">L</button>
+                                                <button type="button" class="btn">XL</button> --}}
+                                            </div>
                                         </div>
                                         <div class="p-color">
-                                            <h4>Color:{{ $data->color }}</h4>
-                                            <div class="status">
-                                                <h4>Status:{{ $data->status }}</h4>
-
+                                            <h4>Color:</h4>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn">{{ $product->color }}</button>
+                                                {{-- <button type="button" class="btn">Black</button>
+                                                <button type="button" class="btn">Blue</button> --}}
                                             </div>
-                                           
-
                                         </div>
-
-
                                         <div class="action">
                                             <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
                                             <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Buy Now</a>
                                         </div>
-
                                     </div>
-                                    @endforeach
                                 </div>
-
                             </div>
-
                         </div>
-
 
                         <div class="row product-detail-bottom">
                             <div class="col-lg-12">
@@ -241,7 +239,7 @@
                                         </div>
                                         <div class="product-image">
                                             <a href="product-detail.html">
-                                                <img src="{{ asset('frontend')}}/img/product-10.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product-10.jpg" alt="Product Image">
                                             </a>
                                             <div class="product-action">
                                                 <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -269,7 +267,7 @@
                                         </div>
                                         <div class="product-image">
                                             <a href="product-detail.html">
-                                                <img src="{{ asset('frontend')}}/img/product-8.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product-8.jpg" alt="Product Image">
                                             </a>
                                             <div class="product-action">
                                                 <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -297,7 +295,7 @@
                                         </div>
                                         <div class="product-image">
                                             <a href="product-detail.html">
-                                                <img src="{{ asset('frontend')}}/img/product-6.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product-6.jpg" alt="Product Image">
                                             </a>
                                             <div class="product-action">
                                                 <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -325,7 +323,7 @@
                                         </div>
                                         <div class="product-image">
                                             <a href="product-detail.html">
-                                                <img src="{{ asset('frontend')}}/img/product-4.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product-4.jpg" alt="Product Image">
                                             </a>
                                             <div class="product-action">
                                                 <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -353,7 +351,7 @@
                                         </div>
                                         <div class="product-image">
                                             <a href="product-detail.html">
-                                                <img src="{{ asset('frontend')}}/img/product-2.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product-2.jpg" alt="Product Image">
                                             </a>
                                             <div class="product-action">
                                                 <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -411,7 +409,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="product-detail.html">
-                                            <img src="{{ asset('frontend')}}/img/product-7.jpg" alt="Product Image">
+                                            <img src="{{ asset('frontend') }}/img/product-7.jpg" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -437,7 +435,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="product-detail.html">
-                                            <img src="{{ asset('frontend')}}/img/product-8.jpg" alt="Product Image">
+                                            <img src="{{ asset('frontend') }}/img/product-8.jpg" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -463,7 +461,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="product-detail.html">
-                                            <img src="{{ asset('frontend')}}/img/product-9.jpg" alt="Product Image">
+                                            <img src="{{ asset('frontend') }}/img/product-9.jpg" alt="Product Image">
                                         </a>
                                         <div class="product-action">
                                             <a href="#"><i class="fa fa-cart-plus"></i></a>
@@ -517,12 +515,12 @@
         <div class="brand">
             <div class="container-fluid">
                 <div class="brand-slider">
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-1.png" alt=""></div>
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-2.png" alt=""></div>
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-3.png" alt=""></div>
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-4.png" alt=""></div>
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-5.png" alt=""></div>
-                    <div class="brand-item"><img src="{{ asset('frontend')}}/img/brand-6.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-1.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-2.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-3.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-4.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-5.png" alt=""></div>
+                    <div class="brand-item"><img src="{{ asset('frontend') }}/img/brand-6.png" alt=""></div>
                 </div>
             </div>
         </div>
@@ -530,21 +528,7 @@
 
 
 
-        <!-- Footer Bottom Start -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 copyright">
-                        <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
-                    </div>
 
-                    <div class="col-md-6 template-by">
-                        <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer Bottom End -->
 
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -552,11 +536,11 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ asset('frontend')}}/lib/easing/easing.min.js"></script>
-        <script src="{{ asset('frontend')}}/lib/slick/slick.min.js"></script>
+        <script src="{{ asset('frontend') }}/lib/easing/easing.min.js"></script>
+        <script src="{{ asset('frontend') }}/lib/slick/slick.min.js"></script>
 
         <!-- Template Javascript -->
-        <script src="{{ asset('frontend')}}/js/main.js"></script>
+        <script src="{{ asset('frontend') }}/ js/main.js"></script>
     </body>
-
+</html>
 @endsection

@@ -26,7 +26,7 @@ class ProductsController extends Controller
         // }
 
 
-       
+
         //new way
 
         // $all = Category::where('parent_id', 1)->get();
@@ -38,7 +38,7 @@ class ProductsController extends Controller
         //            echo $child;
         //            productForm($child->id);
         //         }
-               
+
         //     }
 
         // }
@@ -48,9 +48,9 @@ class ProductsController extends Controller
         $brands = Brand::all();
 
         return view('backend.layouts.product.product_form', compact('categories', 'brands'));
-        
 
-        
+
+
     }
 
 
@@ -60,7 +60,7 @@ class ProductsController extends Controller
             $data = $request->all();
         }
         $productStore = new product;
-        $productStore->category_id = $data['parent_id'];
+        $productStore->category_id = $data['category_id'];
         $productStore->brand_id = $data['id'];
         $productStore->name = $data['name'];
         $productStore->quantity = $data['quantity'];
@@ -90,7 +90,7 @@ class ProductsController extends Controller
     public function productList()
     {
         $productStore=Product::with('categoryRelation')->get();
-          
+
         return view('backend.layouts.product.product_list', compact('productStore'));
     }
 }
