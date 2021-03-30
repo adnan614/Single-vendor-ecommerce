@@ -92,5 +92,10 @@ Route::get('/user/customer_list/', [UserController::class, 'customerList'])->nam
 //Customer Login
 Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
 Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 972dce55662fe7940992dd719c50dc2d265d5811
 //slider
 Route::get('/slider/slider_form/',[SliderController::class,'sliderForm'])->name('slider.show');
