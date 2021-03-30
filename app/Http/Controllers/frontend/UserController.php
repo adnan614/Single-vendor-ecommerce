@@ -38,6 +38,15 @@ class UserController extends Controller
         $users->save();
         return redirect()->back()->with('msg', 'Registration Successfully.');
     }
+    //show list
+    public function customerList()
+    {
+        $users = User::all();
+        
+        return view('backend.layouts.customer.customer_list', compact('users'));
+    }
+
+    
 
 
     }

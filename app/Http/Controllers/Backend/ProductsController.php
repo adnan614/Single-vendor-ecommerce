@@ -106,7 +106,7 @@ class ProductsController extends Controller
     public function productList()
     {
         $productStore=Product::with('categoryRelation')->get();
-          
+
         return view('backend.layouts.product.product_list', compact('productStore'));
     }
 }
