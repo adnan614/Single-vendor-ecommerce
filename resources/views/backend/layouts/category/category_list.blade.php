@@ -13,7 +13,8 @@
 
                     <form method="get" action="{{route('category.form')}}">
                     <button
-                  class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="float:right;" type="submit"
+                  class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" 
+                  style="float:right;" type="submit"
                 >
                   Add Category
                 </button>
@@ -49,9 +50,30 @@
                                 {{$category->description}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                <a href="#" class="btn btn-sm btn-info">Delete</a>
-                                    <a href="#" class="btn btn-sm btn-info">view</a>
-                                    <a href="#" class="btn btn-sm btn-info">edit</a>
+                            
+
+                                <div>
+                                <form method="get" action="{{route('category.edit',$category->id)}}">
+                                <button
+                                  class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                  type="submit" style="margin: 3% 0%;"
+                                >
+                                  Edit
+                                </button>
+                                </form>
+                                </div>
+
+                                <div>
+                                <form method="get" action="{{route('category.delete',$category->id)}}">
+                                <button
+                                  class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                                  type="submit"
+                                >
+                                  Delete
+                                </button>
+                                </form>
+                                </div>
+
                                 </td>
                             </tr>
                             @endforeach

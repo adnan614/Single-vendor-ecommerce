@@ -18,15 +18,6 @@ Route::get('/', function () {
     return view ('frontend.layouts.home');
 })->name('frontend.layouts.home');
 
-
-
-
-
-
-
-
-
-
 //frontend
 
 Route::get('/frontend/product/view', [ProductController::class, 'view'])->name('frontend.product.view');
@@ -61,14 +52,7 @@ Route::get('/form', function () {
     return view ('backend.product.form');
 });
 
-
-
-
-
-
 // admin login
-
-
 Route::get('/admin/login/form', [LoginController::class, 'show_login'])->name('show.login');
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
@@ -94,13 +78,12 @@ Route::delete('/slider/delete/{id}',[SliderController::class,'delete'])->name('s
 
 
 //category
-
-
-
-
 Route::get('/category/category_form/', [CategoriesController::class, 'categoryForm'])->name('category.form');
 Route::post('/category/category_add/', [CategoriesController::class, 'categoryAdd'])->name('category.add');
 Route::get('/category/category_list/', [CategoriesController::class, 'categoryList'])->name('category.list');
+Route::get('/category/edit/{id}',[CategoriesController::class, 'categoryEdit'])->name('category.edit');
+Route::put('/category/update/{id}',[CategoriesController::class, 'categoryUpdate'])->name('category.update');
+Route::get('/category/delete/{id}',[CategoriesController::class, 'categoryDelete'])->name('category.delete');
 
 //product
 Route::get('/product/product_form/', [ProductsController::class, 'productForm'])->name('product.form');
