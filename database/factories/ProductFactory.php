@@ -27,7 +27,8 @@ class ProductFactory extends Factory
             'name' => $this->faker->name,
             'quantity' => 10,
             'color' => $this->faker->colorName,
-            'price' => $this->faker->randomNumber(2),
+            'Selling_price' => $this->faker->randomNumber(2),
+            'buying_price' => $this->faker->randomNumber(2),
             'product_slug' => $this->faker->name,
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
         ];
