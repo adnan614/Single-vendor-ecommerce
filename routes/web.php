@@ -9,7 +9,7 @@ use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\BrandsController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
-
+use App\Http\Controllers\Frontend\CartController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -48,6 +48,11 @@ Route::get('/frontend/product/view/{id}', [ProductController::class,'view'])->na
 Route::get('/frontend/product/allview', [ProductController::class,'allview'])->name ('frontend.product.allview');
 //category
 // Route::get('/frontend/category/view',[CategoriesController::class,'view'])->name('frontend.product.view');
+
+
+// cart
+
+Route::get('/cart',[CartController::class,'cartAdd'])->name('cart.add');
 
 
 
