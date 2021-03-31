@@ -16,4 +16,8 @@ class ProductController extends Controller
         $product =Product::all();
         return view ('frontend.product.allview',compact('product'));
     }
+    public function home(){
+        $product =Product::all();
+        return view ('frontend.layouts.home',compact('product'));
+    }
 }

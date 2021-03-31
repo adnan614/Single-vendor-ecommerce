@@ -32,7 +32,8 @@ class ProductsController extends Controller
         return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
         
 
-        
+
+
     }
 
 
@@ -61,7 +62,6 @@ class ProductsController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('upload/', $filename);
             $productStore->image = $filename;
-
         }
         $productStore->save();
 
@@ -73,7 +73,7 @@ class ProductsController extends Controller
 
     public function productList()
     {
-        $productStore=Product::with('categoryRelation')->get();
+        $productStore = Product::with('categoryRelation')->get();
 
         return view('backend.layouts.product.product_list', compact('productStore'));
     }

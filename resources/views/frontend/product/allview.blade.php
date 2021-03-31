@@ -126,7 +126,7 @@
                                 </div>
                             </div>
 
-
+{{-- @dd($product) --}}
                             @foreach ($product as $data )
 
                             <div class="col-md-4">

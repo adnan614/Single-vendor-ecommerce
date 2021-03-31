@@ -20,7 +20,8 @@ class ProductSeeder extends Seeder
             'name' => 'Bag',
             'quantity' => '1',
             'color' => 'black',
-            'price' => '1200',
+            'buying_price'=>'1100',
+            'selling_price' => '1200',
             'status' => 'false',
         ]);
     }
