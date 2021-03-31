@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Brand;
-use Toastr;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class BrandsController extends Controller
 {
@@ -13,7 +13,7 @@ class BrandsController extends Controller
 
     public function brandForm(){
         $brands = Brand::all();
-        
+
         return view('backend.layouts.brand.brand_form');
     }
 
@@ -35,7 +35,7 @@ class BrandsController extends Controller
     public function brandList()
     {
         $brands = Brand::all();
-        
+
         return view('backend.layouts.brand.brand_list', compact('brands'));
     }
 //delete brand
@@ -50,6 +50,6 @@ class BrandsController extends Controller
         }
         return redirect()->back()->with('message', $message);
     }
-    
+
 
 }

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.layouts.home');
-});
+})->name('frontend.layouts.home');
 
 
 //frontend
@@ -65,4 +65,33 @@ Route::post('/user/store', [UserController::class, 'userstore'])->name('user.sto
 
 //Customer Login
 Route::get('/user/log', [Login::class, 'userlog'])->name('user.loginform');
-Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.login');
+Route::post('/user/login', [Login::class, 'loginput'])->name('user.login');
+Route::get('/user/logout',[Login::class,'logout'])->name('logout');
+//google login
+Route::get('login/google',[Login::class,'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback',[Login::class,'handleGoogleCallback']);
+//Facebook login
+Route::get('login/facebook',[Login::class,'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback',[Login::class,'handleFacebookCallback']);
+//GitHub login
+Route::get('login/github',[Login::class,'redirectToGithub'])->name('login.github');
+Route::get('login/github/callback',[Login::class,'handleGithubCallback']);
+
+
+
+
+// Route::resource('users', [UserController::class]);
+
+
+
+//users
+
+/**
+ * users (get)
+ *
+ * users/create (get)
+ * users (post)
+ *users/{id}/edit (get)
+ * users/{id}/update (put)
+ *users/{id}/delete (delete)
+ */
