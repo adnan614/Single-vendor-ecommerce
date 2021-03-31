@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Toastr;
 class UserController extends Controller
 
     {
@@ -36,6 +37,8 @@ class UserController extends Controller
         $users->role  = $request->input('role');
 
         $users->save();
+        Toastr::success('Brand inserted successfully', 'Success', ["positionClass" => "toast-top-right"]);
+        
         return redirect()->back()->with('msg', 'Registration Successfully.');
     }
     //show list
@@ -45,6 +48,8 @@ class UserController extends Controller
         
         return view('backend.layouts.customer.customer_list', compact('users'));
     }
+
+    
 
 
     }
