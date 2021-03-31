@@ -13,45 +13,29 @@ class ProductsController extends Controller
 {
     public function productForm()
     {
-        //previous way
+        $categories = Category::where('parent_id', 0)->get();
+        $categories_dropdown = "<option value='' selected  disabled>Select</option>";
+        foreach ($categories as $cat) {
+            $categories_dropdown .= "<option value='" . $cat->id . "'  >" . $cat->category_name . "</option>";
+            $sub_categories = Category::where('parent_id', $cat->id)->get();
+            foreach ($sub_categories as $sub_cat) {
+                $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->category_name . "</option>";
+                $sub_sub_categories = Category::where('parent_id', $sub_cat->id)->get();
+                foreach ($sub_sub_categories as $sub_sub_cat) {
+                    $categories_dropdown .= "<option value='" . $sub_sub_cat->id . "'>&nbsp;--&nbsp --&nbsp" . $sub_sub_cat->category_name . "</option>";
+                }
+            }
+        }
 
-        // $categories = Category::where('parent_id', 0)->get();
-        // $categories_dropdown = "<option value='' selected disabled>Select</option>";
-        // foreach ($categories as $cat) {
-        //     $categories_dropdown .= "<option value='" . $cat->id . "' selected disabled>" . $cat->cat_name . "</option>";
-        //     $sub_categories = Category::where('parent_id', $cat->id)->get();
-        //     foreach ($sub_categories as $sub_cat) {
-        //         $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->cat_name . "</option>";
-        //     }
-        // }
-
-
-
-        //new way
-
-        // $all = Category::where('parent_id', 1)->get();
-        // if(count($all)>0){
-
-        //     foreach($all as $child){
-        //         $elsechild = Category::where('parent_id', $child->id)->get();
-        //         if($elsechild->count() > 0){
-        //            echo $child;
-        //            productForm($child->id);
-        //         }
-
-        //     }
-
-        // }
-
-
-        $categories = Category::all();
         $brands = Brand::all();
 
-        return view('backend.layouts.product.product_form', compact('categories', 'brands'));
+        return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
+        
 
-
-
+        
     }
+
+
 
 
     public function productAdd(Request $request)

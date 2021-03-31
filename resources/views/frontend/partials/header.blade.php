@@ -35,7 +35,7 @@
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
                          <div class="dropdown-menu">
                             @guest<a href="{{ route('user.loginform') }}" class="dropdown-item">Login</a>@endguest
-                            @auth<a href="" class="dropdown-item">Logout</a>@endauth
+                            @auth<a href="{{route('logout')}}" class="dropdown-item">Logout</a>@endauth
                             <a href="{{route('user.form')}}" class="dropdown-item">Register</a>
                         </div>
                     </div>

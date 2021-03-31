@@ -34,10 +34,7 @@
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   name="category_id" id="category_id"
                 >
-                  <option value="0">Parent Category</option>
-                    @foreach($categories as $row)
-                    <option value="{{$row->id}}">{{$row->category_name}}</option>
-                    @endforeach
+                <?php echo $categories_dropdown;   ?>
                 </select>
               </label>
 

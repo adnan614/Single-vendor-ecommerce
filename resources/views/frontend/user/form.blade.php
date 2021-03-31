@@ -20,7 +20,7 @@
   <body>
     <form method="post" action="{{route('user.store')}}">
      @csrf
-    @if(session()->has('message'))
+     @if(session()->has('message'))
     <p class="alert alert-success">{{session()->get('message')}}</p>
     @endif
 

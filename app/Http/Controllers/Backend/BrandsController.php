@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Brand;
-use Toastr;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class BrandsController extends Controller
 {
@@ -13,7 +13,7 @@ class BrandsController extends Controller
 
     public function brandForm(){
         $brands = Brand::all();
-        
+
         return view('backend.layouts.brand.brand_form');
     }
 
@@ -36,7 +36,7 @@ class BrandsController extends Controller
     public function brandList()
     {
         $brands = Brand::all();
-        
+
         return view('backend.layouts.brand.brand_list', compact('brands'));
     }
 //delete brand
@@ -58,7 +58,7 @@ class BrandsController extends Controller
     public function brandEdit($id){
 
         $brands=Brand::find($id);
-      
+
        return view('backend.layouts.brand.brand_edit',compact('brands'));
     }
 
@@ -77,5 +77,15 @@ public function brandUpdate(Request $request,$id){
 
 
  }
+   public function delete($id)
+    {
+          $brands = Brand::find($id);
+          $brands->delete();
+
+          Toastr::success('Brand Deleted Successfully', 'Success', ["positionClass" => "toast-top-center"]);
+
+          return back();
+
+    }
 
 }
