@@ -45,7 +45,7 @@ Route::get('/frontend/product/allview', [ProductController::class,'allview'])->n
 
 // cart
 
-Route::get('/cart',[CartController::class,'cartAdd'])->name('cart.add');
+Route::get('/cart/{id}',[CartController::class,'cartAdd'])->name('cart.add');
 
 
 
