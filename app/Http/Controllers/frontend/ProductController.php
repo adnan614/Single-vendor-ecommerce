@@ -8,8 +8,12 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    public function view(){
-        // $product =Product::all();
-        return view ('frontend.product.product');
+    public function view($id){
+         $product =Product::find($id);
+        return view ('frontend.product.view',compact('product'));
+    }
+    public function allview(){
+        $product =Product::all();
+        return view ('frontend.product.allview',compact('product'));
     }
 }

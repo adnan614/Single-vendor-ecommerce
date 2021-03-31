@@ -12,9 +12,12 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="" class="nav-item nav-link active">Home</a>
-                    <a href="{{ route('frontend.product.product') }}" class="nav-item nav-link">Products</a>
-                    <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                    <a href="{{ route('frontend.layouts.home') }}" class="nav-item nav-link ">Home</a>
+                    <a href="category.html" class="nav-item nav-link ">Category</a>
+                    <a href="{{ route('frontend.product.allview') }}" class="nav-item nav-link">Products</a>
+
+                    <a href="" class="nav-item nav-link">Product Detail</a>
+
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
                     <a href="checkout.html" class="nav-item nav-link">Checkout</a>
                     <a href="my-account.html" class="nav-item nav-link">My Account</a>
@@ -42,3 +45,16 @@
     </div>
 </div>
 <!-- Nav Bar End -->
+
+{{-- <li class="dropdown">
+    <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white; font-size: 18px; margin-top: 3px;" >
+      Category
+    </div>
+
+    <ul class="dropdown-menu" style="background-color: black;">
+        @foreach($categories as $data)
+        <li><a href="{{ route('frontend.category.view',$data->id) }}" style="background: white">{{ $data->name }}</a></li>
+        @endforeach
+    </ul>
+
+</li> --}}
