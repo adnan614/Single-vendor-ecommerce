@@ -19,7 +19,7 @@
                     <a href="" class="nav-item nav-link">Product Detail</a>
 
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
-                    <a href="checkout.html" class="nav-item nav-link">Checkout</a>
+                    <a href="{{ route('frontend.checkout.form') }}" class="nav-item nav-link">Checkout</a>
                     <a href="my-account.html" class="nav-item nav-link">My Account</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>

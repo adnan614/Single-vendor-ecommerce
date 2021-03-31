@@ -1,22 +1,23 @@
 <?php
 
-use App\Http\Controllers\frontend\UserController;
-use App\Http\Controllers\frontend\ProductController;
-use App\Http\Controllers\Backend\LoginController;
-use App\Http\Controllers\Backend\CategoriesController;
-use App\Http\Controllers\Backend\ProductsController;
-use App\Http\Controllers\frontend\LoginController as Login;
-use App\Http\Controllers\Backend\BrandsController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\SliderController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\LoginController;
+use App\Http\Controllers\frontend\UserController;
+use App\Http\Controllers\Backend\BrandsController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductsController;
+use App\Http\Controllers\frontend\ProductController;
+use App\Http\Controllers\frontend\CheckoutController;
+
+use App\Http\Controllers\Backend\CategoriesController;
+use App\Http\Controllers\frontend\LoginController as Login;
 
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view ('frontend.layouts.home');
-})->name('frontend.layouts.home');
+//     return view ('frontend.layouts.home');
+// })->name('frontend.layouts.home');
 
 
 
@@ -46,6 +47,10 @@ Route::post('/user/login', [LoginController::class, 'loginput'])->name('user.log
 //product
 Route::get('/frontend/product/view/{id}', [ProductController::class,'view'])->name ('frontend.product.view');
 Route::get('/frontend/product/allview', [ProductController::class,'allview'])->name ('frontend.product.allview');
+Route::get('/',[ProductController::class,'home'])->name('frontend.layouts.home');
+
+//checkout
+Route::get('/frontend/checkout/form',[CheckoutController::class,'show'])->name('frontend.checkout.form');
 //category
 // Route::get('/frontend/category/view',[CategoriesController::class,'view'])->name('frontend.product.view');
 
