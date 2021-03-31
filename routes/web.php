@@ -9,7 +9,7 @@ use App\Http\Controllers\frontend\LoginController as Login;
 use App\Http\Controllers\Backend\BrandsController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SliderController;
-
+use App\Http\Controllers\Backend\BusinessController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -137,3 +137,6 @@ Route::get('login/github/callback',[Login::class,'handleGithubCallback']);
  * users/{id}/update (put)
  *users/{id}/delete (delete)
  */
+
+ //Business
+ Route::get('/form', [BusinessController::class, 'form'])->name('business.form');
