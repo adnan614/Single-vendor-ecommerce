@@ -11,62 +11,32 @@ use Toastr;
 
 class ProductsController extends Controller
 {
-    public $categories_dropdown = '';
     public function productForm()
     {
-        // $categories = Category::where('parent_id', 0)->get();
-        // $categories_dropdown = "<option value='' selected  disabled>Select</option>";
-        // foreach ($categories as $cat) {
-        //     $categories_dropdown .= "<option value='" . $cat->id . "'  >" . $cat->category_name . "</option>";
-        //     $sub_categories = Category::where('parent_id', $cat->id)->get();
-        //     foreach ($sub_categories as $sub_cat) {
-        //         $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->category_name . "</option>";
-        //         $sub_sub_categories = Category::where('parent_id', $sub_cat->id)->get();
-        //         foreach ($sub_sub_categories as $sub_sub_cat) {
-        //             $categories_dropdown .= "<option value='" . $sub_sub_cat->id . "'>&nbsp;--&nbsp --&nbsp" . $sub_sub_cat->category_name . "</option>";
-        //         }
-        //     }
-        // }
-
-
-        $parents = Category::where('parent_id', 0)->get();
-        $brands = Brand::all();
-        foreach ($parents as $parent) {
-            $this->categories_dropdown .= $parent->category_name;
-            //dd($this->categories_dropdown);
-            $this->getChild($parent->id);
-        }
-        return view('backend.layouts.product.product_form', ['categories_dropdown' => $this->categories_dropdown, 'brands' => $brands]);
-
-
-        // $categories = Category::all();
-        // $brands = Brand::all();
-
-
-        // return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
-
-
-
-    }
-
-
-
-
-    function getChild($id)
-    {
-
-
-        $child = Category::where('parent_id', $id)->get();
-        if (count($child) > 0) {
-            foreach ($child as $data) {
-                $this->categories_dropdown .= "<option value='" . $data->id . "'  >" . $data->category_name . "</option>";
-                $this->getChild($data->id);
+        $categories = Category::where('parent_id', 0)->get();
+        $categories_dropdown = "<option value='' selected  disabled>Select</option>";
+        foreach ($categories as $cat) {
+            $categories_dropdown .= "<option value='" . $cat->id . "'  >" . $cat->category_name . "</option>";
+            $sub_categories = Category::where('parent_id', $cat->id)->get();
+            foreach ($sub_categories as $sub_cat) {
+                $categories_dropdown .= "<option value='" . $sub_cat->id . "'>&nbsp;--&nbsp" . $sub_cat->category_name . "</option>";
+                $sub_sub_categories = Category::where('parent_id', $sub_cat->id)->get();
+                foreach ($sub_sub_categories as $sub_sub_cat) {
+                    $categories_dropdown .= "<option value='" . $sub_sub_cat->id . "'>&nbsp;--&nbsp --&nbsp" . $sub_sub_cat->category_name . "</option>";
+                }
             }
-            return view('backend.layouts.product.product_form');
-        } else {
-            return view('backend.layouts.product.product_form');
         }
+
+        $brands = Brand::all();
+
+        return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
+        
+
+
+
     }
+
+
 
 
     public function productAdd(Request $request)
