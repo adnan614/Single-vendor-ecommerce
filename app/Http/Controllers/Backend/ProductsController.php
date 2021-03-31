@@ -11,7 +11,7 @@ use Toastr;
 
 class ProductsController extends Controller
 {
-    public $categories_dropdown='';
+    public $categories_dropdown = '';
     public function productForm()
     {
         // $categories = Category::where('parent_id', 0)->get();
@@ -28,45 +28,44 @@ class ProductsController extends Controller
         //     }
         // }
 
-    
+
         $parents = Category::where('parent_id', 0)->get();
-        foreach($parents as $parent){
-            $this->categories_dropdown.=$parent->category_name;
+        $brands = Brand::all();
+        foreach ($parents as $parent) {
+            $this->categories_dropdown .= $parent->category_name;
             //dd($this->categories_dropdown);
             $this->getChild($parent->id);
         }
-        return $this->categories_dropdown;
+        return view('backend.layouts.product.product_form', ['categories_dropdown' => $this->categories_dropdown, 'brands' => $brands]);
 
 
-        
         // $categories = Category::all();
         // $brands = Brand::all();
 
 
         // return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
-        
 
-        
+
+
     }
 
 
-    
 
-    function getChild($id){
-        
-        $brands = Brand::all();
-            $child = Category::where('parent_id', $id)->get();
-            if(count($child) > 0){
-                foreach($child as $data){
-                    $this->categories_dropdown .= "<option value='" . $data->id . "'  >" . $data->category_name . "</option>";
-                    $this->getChild($data->id);
-                    return view('backend.layouts.product.product_form', compact('categories_dropdown', 'brands'));
-                }
-                return view('backend.layouts.product.product_form');
-              
-            }else{
-                return view('backend.layouts.product.product_form');
+
+    function getChild($id)
+    {
+
+
+        $child = Category::where('parent_id', $id)->get();
+        if (count($child) > 0) {
+            foreach ($child as $data) {
+                $this->categories_dropdown .= "<option value='" . $data->id . "'  >" . $data->category_name . "</option>";
+                $this->getChild($data->id);
             }
+            return view('backend.layouts.product.product_form');
+        } else {
+            return view('backend.layouts.product.product_form');
+        }
     }
 
 
@@ -93,7 +92,6 @@ class ProductsController extends Controller
             $filename = time() . '.' . $extension;
             $file->move('upload/', $filename);
             $productStore->image = $filename;
-
         }
         $productStore->save();
 
@@ -105,7 +103,7 @@ class ProductsController extends Controller
 
     public function productList()
     {
-        $productStore=Product::with('categoryRelation')->get();
+        $productStore = Product::with('categoryRelation')->get();
 
         return view('backend.layouts.product.product_list', compact('productStore'));
     }
